@@ -164,12 +164,18 @@
           return
         }
         let cLeft = e.pageX - pointsLeft
+        let bestMatchAnchor = null
         _this.anchors.forEach((a) => {
           if(cLeft >= a.left) {
-            _this.setTo(_this.status.current, a.rightPoint, a.rightPointIndex)
+            bestMatchAnchor = a
             return false
           }
         })
+        _this.setTo(
+          _this.status.current,
+          bestMatchAnchor.rightPoint,
+          bestMatchAnchor.rightPointIndex
+        )
       }
       this.currents.forEach((current) => {
         current.off("mousedown").on("mousedown", mousedown)

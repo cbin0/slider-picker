@@ -163,12 +163,14 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             return;
           }
           var cLeft = e.pageX - pointsLeft;
+          var bestMatchAnchor = null;
           _this.anchors.forEach(function (a) {
             if (cLeft >= a.left) {
-              _this.setTo(_this.status.current, a.rightPoint, a.rightPointIndex);
+              bestMatchAnchor = a;
               return false;
             }
           });
+          _this.setTo(_this.status.current, bestMatchAnchor.rightPoint, bestMatchAnchor.rightPointIndex);
         };
         this.currents.forEach(function (current) {
           current.off("mousedown").on("mousedown", mousedown);
