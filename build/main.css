@@ -1,0 +1,71 @@
+.slider-slot {
+  height: 5px;
+  background: #e5e5e5;
+  border-radius: 3px;
+  position: relative;
+  margin: 0 5px;
+}
+.slider-slot .slider-points {
+  margin: 0 2.5px;
+  position: relative;
+}
+.slider-slot .slider-current {
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  left: 0%;
+  background: #337ab7;
+  border-radius: 50%;
+  top: -5px;
+  cursor: -webkit-grab;
+  cursor: grab;
+  margin-left: -7.5px;
+  z-index: 1002;
+}
+.slider-slot .slider-current .slider-current-tooltip {
+  display: none;
+  position: absolute;
+  top: 20px;
+  color: #fff;
+  font-size: 10px;
+  background: #333;
+  border-radius: 3px;
+  padding: 4px 6px;
+  white-space: nowrap;
+}
+.slider-slot .slider-current .slider-current-tooltip-arrow {
+  display: none;
+  width: 8px;
+  height: 8px;
+  position: absolute;
+  top: 18px;
+  left: 8px;
+  background: #333;
+  transform: rotate(45deg);
+}
+.slider-slot .slider-current.grabbing {
+  cursor: -webkit-grabbing;
+  cursor: grabbing;
+}
+.slider-slot .slider-current.grabbing .slider-current-tooltip,
+.slider-slot .slider-current.grabbing .slider-current-tooltip-arrow {
+  display: block;
+}
+.slider-slot .slider-point {
+  position: absolute;
+  left: 0%;
+  height: 5px;
+  width: 5px;
+  background: #bbb;
+  border-radius: 50%;
+  margin-left: -2.5px;
+}
+.slider-slot .slider-bar {
+  position: absolute;
+  left: 0%;
+  right: 0%;
+  height: 5px;
+  background: #337ab7;
+  border-radius: 3px;
+  z-index: 1001;
+}

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Test Case</title>
+    <link rel="stylesheet" href="build/main.css">
+  </head>
+  <body>
+    <div id="silder-picker">
+      <input id="silder-picker-input">
+    </div>
+    <script src="node_modules/jquery/dist/jquery.js" ></script>
+    <script src="build/index.js" ></script>
+    <script type="text/javascript">
+      $('#silder-picker-input').silderRange({
+        points: 20
+      })
+    </script>
+  </body>
+</html>
