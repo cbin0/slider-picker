@@ -1,14 +1,14 @@
 {
   "name": "slider-picker",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "",
   "main": "build/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "demo": "open index.html",
     "build": "./node_modules/.bin/babel src.js --out-file build/index.js && lessc main.less build/main.css --autoprefix=\"last 2 versions\""
   },
   "dependencies": {
-    "jquery": "^3.2.1"
   },
   "devDependencies": {
     "less-plugin-autoprefix": "^1.5.1",

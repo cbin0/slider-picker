@@ -1,0 +1,20 @@
+{
+  "name": "slider-picker",
+  "description": "指定一个总点数和一个文本框，给出一个范围选择器",
+  "main": "build/index.js",
+  "authors": [
+    "cuibin"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/cbin0/slider-picker",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^3.2.1"
+  }
+}
