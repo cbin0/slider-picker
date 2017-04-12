@@ -7,6 +7,7 @@
     points: 10,
     start: 1,
     end: 10,
+    tooltipPosition: 'bottom',
     tooltip: (index) => {
       return index
     },
@@ -40,6 +41,9 @@
     }
     if(options.end > options.points) {
       options.end = options.points
+    }
+    if(['top', 'bottom'].indexOf(options.tooltipPosition) < 0) {
+      options.tooltipPosition = 'bottom'
     }
 
     this.slider = new Slider(this, options)
@@ -112,6 +116,7 @@
       ]
       this.currents.forEach((current) => {
         _this.$points.append(current)
+        current.addClass(this.options.tooltipPosition)
       })
       this.setTo(
         this.currents[0],

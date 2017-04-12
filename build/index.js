@@ -13,6 +13,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     points: 10,
     start: 1,
     end: 10,
+    tooltipPosition: 'bottom',
     tooltip: function tooltip(index) {
       return index;
     },
@@ -33,6 +34,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     }
     if (options.end > options.points) {
       options.end = options.points;
+    }
+    if (['top', 'bottom'].indexOf(options.tooltipPosition) < 0) {
+      options.tooltipPosition = 'bottom';
     }
 
     this.slider = new Slider(this, options);
@@ -108,10 +112,13 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     }, {
       key: 'initCurrent',
       value: function initCurrent() {
+        var _this2 = this;
+
         var _this = this;
         this.currents = [$(templateCurrent), $(templateCurrent)];
         this.currents.forEach(function (current) {
           _this.$points.append(current);
+          current.addClass(_this2.options.tooltipPosition);
         });
         this.setTo(this.currents[0], this.pointEls[this.options.start - 1].data('left'), this.options.start);
         this.setTo(this.currents[1], this.pointEls[this.options.end - 1].data('left'), this.options.end);
@@ -123,7 +130,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     }, {
       key: 'bindEvents',
       value: function bindEvents() {
-        var _this2 = this;
+        var _this3 = this;
 
         var _this = this;
         var pointsLeft = _this.$points.offset().left;
@@ -139,7 +146,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           _this.status.mousedown = false;
           if (!_this.status.current) return;
           if (typeof _this.options.onchange == 'function') {
-            var indexs = _this2.currents.map(function (current) {
+            var indexs = _this3.currents.map(function (current) {
               return parseInt(current.attr('data-index')) || 1;
             });
             var start = Math.min.apply(window, indexs);

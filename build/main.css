@@ -43,6 +43,14 @@
   background: #333;
   transform: rotate(45deg);
 }
+.slider-slot .slider-current.top .slider-current-tooltip {
+  top: initial;
+  bottom: 20px;
+}
+.slider-slot .slider-current.top .slider-current-tooltip-arrow {
+  top: initial;
+  bottom: 18px;
+}
 .slider-slot .slider-current.grabbing {
   cursor: -webkit-grabbing;
   cursor: grabbing;

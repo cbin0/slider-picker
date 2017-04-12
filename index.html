@@ -6,14 +6,15 @@
     <link rel="stylesheet" href="build/main.css">
   </head>
   <body>
-    <div id="silder-picker">
+    <div id="silder-picker" style="margin-top: 50px; width: 50%;">
       <input id="silder-picker-input">
     </div>
     <script src="bower_components/jquery/dist/jquery.js" ></script>
     <script src="build/index.js" ></script>
     <script type="text/javascript">
       $('#silder-picker-input').silderRange({
-        points: 20
+        points: 20,
+        tooltipPosition: 'top'
       })
     </script>
   </body>
