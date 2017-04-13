@@ -67,6 +67,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       this.appendPoints();
       this.initAnchors();
       this.initCurrent();
+      this.bindEvents();
+      this.change(this.options.start, this.options.end);
     }
 
     // 初始化点
@@ -122,7 +124,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         });
         this.setTo(this.currents[0], this.pointEls[this.options.start - 1].data('left'), this.options.start);
         this.setTo(this.currents[1], this.pointEls[this.options.end - 1].data('left'), this.options.end);
-        _this.bindEvents();
       }
 
       // 绑定事件
@@ -151,8 +152,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             });
             var start = Math.min.apply(window, indexs);
             var end = Math.max.apply(window, indexs);
-            _this.options.onchange(start, end);
-            _this.input.val(start + '-' + end);
+            _this.change(start, end);
           }
           _this.status.current.removeClass('grabbing');
           _this.status.current = null;
@@ -196,6 +196,12 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           left: Math.min.apply(window, lefts) + '%',
           right: -Math.max.apply(window, lefts) + 100 + "%"
         });
+      }
+    }, {
+      key: 'change',
+      value: function change(start, end) {
+        this.options.onchange(start, end);
+        this.input.val(start + '-' + end);
       }
     }, {
       key: 'tooltip',

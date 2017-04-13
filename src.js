@@ -72,6 +72,8 @@
       this.appendPoints()
       this.initAnchors()
       this.initCurrent()
+      this.bindEvents()
+      this.change(this.options.start, this.options.end)
     }
 
     // 初始化点
@@ -128,7 +130,6 @@
         this.pointEls[this.options.end-1].data('left'),
         this.options.end
       )
-      _this.bindEvents()
     }
 
     // 绑定事件
@@ -152,8 +153,7 @@
           })
           let start = Math.min.apply(window, indexs)
           let end = Math.max.apply(window, indexs)
-          _this.options.onchange(start, end)
-          _this.input.val(`${start}-${end}`)
+          _this.change(start, end)
         }
         _this.status.current.removeClass('grabbing')
         _this.status.current = null
@@ -202,6 +202,11 @@
         left: `${Math.min.apply(window, lefts)}%`,
         right: -Math.max.apply(window, lefts) + 100 + "%"
       })
+    }
+
+    change(start, end) {
+      this.options.onchange(start, end)
+      this.input.val(`${start}-${end}`)
     }
 
     tooltip(current, index) {
