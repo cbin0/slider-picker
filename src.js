@@ -171,11 +171,12 @@
             return false
           }
         })
-        _this.setTo(
-          _this.status.current,
-          bestMatchAnchor.rightPoint,
-          bestMatchAnchor.rightPointIndex
-        )
+        if (bestMatchAnchor)
+          _this.setTo(
+            _this.status.current,
+            bestMatchAnchor.rightPoint,
+            bestMatchAnchor.rightPointIndex
+          )
       }
       this.currents.forEach((current) => {
         current.off("mousedown").on("mousedown", mousedown)
